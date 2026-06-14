@@ -1,0 +1,37 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">不同使用场景的内存选择</title>
+  <desc id="desc">按轻办公、重度多任务、视频设计开发和预算紧张四类场景选择 16GB 或 32GB</desc>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <text x="70" y="84" fill="#111827" font-size="42" font-weight="700">真正的分界线：你是不是重度多任务</text>
+    <text x="72" y="130" fill="#475569" font-size="24">不要只看容量，先看使用场景</text>
+    <g transform="translate(95 205)" font-size="23">
+      <rect width="235" height="300" rx="22" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="60" cy="60" r="30" fill="#2563eb"/><text x="60" y="70" text-anchor="middle" fill="#ffffff" font-weight="700">轻</text>
+      <text x="38" y="120" fill="#111827" font-size="28" font-weight="700">轻办公学习</text>
+      <text x="38" y="165" fill="#64748b">文档、网页、视频</text>
+      <text x="38" y="230" fill="#2563eb" font-weight="700">16GB 优先</text>
+    </g>
+    <g transform="translate(360 205)" font-size="23">
+      <rect width="235" height="300" rx="22" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="60" cy="60" r="30" fill="#0f766e"/><text x="60" y="70" text-anchor="middle" fill="#ffffff" font-weight="700">多</text>
+      <text x="38" y="120" fill="#111827" font-size="28" font-weight="700">重度多任务</text>
+      <text x="38" y="165" fill="#64748b">几十个标签加会议</text>
+      <text x="38" y="230" fill="#0f766e" font-weight="700">32GB 更舒服</text>
+    </g>
+    <g transform="translate(625 205)" font-size="23">
+      <rect width="235" height="300" rx="22" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="60" cy="60" r="30" fill="#7c3aed"/><text x="60" y="70" text-anchor="middle" fill="#ffffff" font-weight="700">创</text>
+      <text x="38" y="120" fill="#111827" font-size="28" font-weight="700">视频设计开发</text>
+      <text x="38" y="165" fill="#64748b">剪辑、虚拟机、工程</text>
+      <text x="38" y="230" fill="#7c3aed" font-weight="700">优先 32GB</text>
+    </g>
+    <g transform="translate(890 205)" font-size="23">
+      <rect width="235" height="300" rx="22" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="60" cy="60" r="30" fill="#d97706"/><text x="60" y="70" text-anchor="middle" fill="#ffffff" font-weight="700">钱</text>
+      <text x="38" y="120" fill="#111827" font-size="28" font-weight="700">预算有限</text>
+      <text x="38" y="165" fill="#64748b">别牺牲屏幕硬盘</text>
+      <text x="38" y="230" fill="#d97706" font-weight="700">均衡更重要</text>
+    </g>
+  </g>
+</svg>
