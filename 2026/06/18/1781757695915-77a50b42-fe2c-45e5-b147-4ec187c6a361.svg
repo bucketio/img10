@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="250" y="270" width="180" height="260" rx="20"/>
+    <path d="M330 330v130"/>
+    <path d="M330 330l-42 42"/>
+    <path d="M330 330l44 40"/>
+    <path d="M278 560l115 0" stroke="#d33" stroke-width="7"/>
+    <path d="M392 535l-112 52" stroke="#d33" stroke-width="7"/>
+    <circle cx="810" cy="460" r="165"/>
+    <circle cx="810" cy="460" r="72"/>
+    <path d="M810 460l115-78" stroke="#f28c28" stroke-width="8"/>
+    <path d="M1050 440c120-42 210-16 280 75" stroke="#f28c28" stroke-width="8"/>
+    <path d="M1300 490l45 28-48 14" stroke="#f28c28" stroke-width="8"/>
+    <rect x="1180" y="300" width="230" height="150" rx="18"/>
+    <path d="M1205 375c65-35 120-35 180 0"/>
+  </g>
+  <g fill="#111">
+    <path d="M670 540c65-12 105 22 110 82 5 64-28 102-91 106-64 4-104-29-108-88-4-54 30-88 89-100z"/>
+    <circle cx="654" cy="625" r="9" fill="#fff"/><circle cx="700" cy="622" r="9" fill="#fff"/>
+    <path d="M638 725c-15 45-32 75-58 100" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M718 723c18 45 36 70 65 95" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M735 590c60-45 90-70 120-115" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+  <g font-family="KaiTi, STKaiti, SimSun, serif" font-size="42" fill="#111">
+    <text x="230" y="235" fill="#d33">不是开关</text>
+    <text x="635" y="275">v0.1</text>
+    <text x="895" y="300" fill="#2f6fbd">v0.5</text>
+    <text x="895" y="650">v1.0</text>
+    <text x="1160" y="580" fill="#f28c28">慢慢放权</text>
+  </g>
+</svg>
