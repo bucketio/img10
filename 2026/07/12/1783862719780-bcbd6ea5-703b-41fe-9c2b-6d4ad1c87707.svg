@@ -1,0 +1,24 @@
+<svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="680" height="280" fill="#fafbfc" rx="8"/>
+  <text x="340" y="25" fill="#333" font-size="14" font-weight="700" text-anchor="middle">居民财富结构：中国 vs 美国</text>
+  <text x="170" y="55" fill="#1D9E75" font-size="13" font-weight="700" text-anchor="middle">中国</text>
+  <rect x="60" y="65" width="220" height="30" fill="#e74c3c" rx="3"/>
+  <text x="170" y="85" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">房产 65%+</text>
+  <rect x="60" y="98" width="120" height="30" fill="#2980b9" rx="3"/>
+  <text x="120" y="118" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">股债基金 ~35%</text>
+  <text x="60" y="148" fill="#888" font-size="11">居民总资产 ~430万亿人民币</text>
+  <text x="60" y="168" fill="#e74c3c" font-size="12" font-weight="600">M2锚定物 = 存量房产</text>
+  <text x="510" y="55" fill="#2980b9" font-size="13" font-weight="700" text-anchor="middle">美国</text>
+  <rect x="400" y="65" width="220" height="30" fill="#2980b9" rx="3"/>
+  <text x="510" y="85" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">股债基金 73%</text>
+  <rect x="400" y="98" width="90" height="30" fill="#e74c3c" rx="3"/>
+  <text x="445" y="118" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">房产 27%</text>
+  <text x="400" y="148" fill="#888" font-size="11">居民总资产 ~$160万亿美元</text>
+  <text x="400" y="168" fill="#2980b9" font-size="12" font-weight="600">M2锚定物 = 金融市场</text>
+  <line x1="340" y1="45" x2="340" y2="180" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3"/>
+  <rect x="40" y="195" width="600" height="75" fill="#f5f7fa" rx="6"/>
+  <text x="55" y="215" fill="#333" font-size="12" font-weight="700">三个关键差异：</text>
+  <text x="55" y="235" fill="#555" font-size="11">① 中国房价回调是宏观事件，美国股市下跌才是宏观事件——M2锚定物不同</text>
+  <text x="55" y="252" fill="#555" font-size="11">② 美联储加息直接压通胀，中国央行降息传导慢——需先经过房地产"中间层"</text>
+  <text x="55" y="269" fill="#555" font-size="11">③ 中国"存款搬家"意义重大——M2锚定物正从房产向金融资产缓慢转移</text>
+</svg>
