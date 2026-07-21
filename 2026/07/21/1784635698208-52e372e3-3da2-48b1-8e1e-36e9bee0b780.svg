@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Ansible 的主要优点</title>
+  <desc id="desc">列出 Ansible 无需长期 Agent、YAML 可读、幂等、易扩展等优点。</desc>
+  <rect width="900" height="430" fill="#fbfcff"/>
+  <text x="48" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#182033">Ansible 为什么适合入门自动化？</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="130" width="350" height="90" rx="20" fill="#edf5ff"/>
+    <text x="105" y="166" font-size="24" font-weight="700" fill="#2f6bd9">无需长期 Agent</text>
+    <text x="105" y="198" font-size="19" fill="#334155">通过远程连接执行任务</text>
+    <rect x="480" y="130" width="350" height="90" rx="20" fill="#e8f7ef"/>
+    <text x="515" y="166" font-size="24" font-weight="700" fill="#24704d">YAML 可读性好</text>
+    <text x="515" y="198" font-size="19" fill="#334155">步骤清晰，方便审查</text>
+    <rect x="70" y="260" width="350" height="90" rx="20" fill="#fff5df"/>
+    <text x="105" y="296" font-size="24" font-weight="700" fill="#946200">强调幂等性</text>
+    <text x="105" y="328" font-size="19" fill="#334155">重复执行结果应保持一致</text>
+    <rect x="480" y="260" width="350" height="90" rx="20" fill="#f6f7fb"/>
+    <text x="515" y="296" font-size="24" font-weight="700" fill="#334155">容易逐步扩展</text>
+    <text x="515" y="328" font-size="19" fill="#334155">从命令执行到完整编排</text>
+  </g>
+</svg>
