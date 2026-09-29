@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="600" viewBox="0 0 680 600">
+  <title>wsf_xio_bridge 与 Warlock 人控通路对照</title>
+  <desc>左侧为 wsf_xio_bridge 现有的 mover 直控通路,右侧为 Warlock 的飞行员对象通路,中间标注三条演进方向,底部说明三条演进要点。</desc>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="680" height="600" fill="#ffffff"/>
+
+  <!-- 左列:bridge 现状 -->
+  <rect x="24" y="24" width="280" height="312" rx="10" fill="#fafbfc" stroke="#e0e3e7" stroke-width="1.2"/>
+  <text x="164" y="52" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#4a5158">wsf_xio_bridge 现状</text>
+  <text x="164" y="72" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11" fill="#8a9199">TCP 4322 · 行分隔 JSON · mover 直控</text>
+  <line x1="44" y1="86" x2="284" y2="86" stroke="#e0e3e7" stroke-width="1"/>
+
+  <text x="44" y="110" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">xio_control:4 通道绝对值</text>
+  <text x="44" y="128" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">SetDirectControlInputs(roll, pitch, yaw, throttle)</text>
+
+  <text x="44" y="168" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">绕过飞行员对象</text>
+  <text x="44" y="187" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">无 CAS、无配平、无自驾保持语义</text>
+
+  <text x="44" y="214" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">100 ms 无输入自动归零</text>
+  <text x="44" y="233" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">唯一防线,无回退保持链</text>
+
+  <text x="44" y="260" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">无权限门控、无操作留痕</text>
+  <text x="44" y="279" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">仅同时接管 1 个平台(与 Warlock 一致)</text>
+
+  <text x="44" y="306" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">油门 [0,2] 语义一致</text>
+  <text x="44" y="325" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">0 慢车 · 1 军推 · 2 全加力</text>
+
+  <!-- 右列:Warlock 参考 -->
+  <rect x="376" y="24" width="280" height="312" rx="10" fill="#eef4f9" stroke="#1d5f8a" stroke-width="1.4"/>
+  <text x="516" y="52" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#1d5f8a">Warlock 参考实现</text>
+  <text x="516" y="72" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11" fill="#8a9199">飞行员对象通路 · 全部人控入口走此路</text>
+  <line x1="396" y1="86" x2="636" y2="86" stroke="#cddde8" stroke-width="1"/>
+
+  <text x="396" y="110" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">操纵注入走飞行员对象</text>
+  <text x="396" y="128" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11" fill="#4a5158">TakeManualControl + SetManualControlData</text>
+  <text x="396" y="146" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">8 通道,16 参扩展:推力矢量 / 刹车</text>
+
+  <text x="396" y="172" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">模式切换,释放切回 SYNTHETIC</text>
+  <text x="396" y="191" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">天然获得 CAS 与自驾保持语义</text>
+
+  <text x="396" y="218" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">无活跃手动飞行员时按次序回退</text>
+  <text x="396" y="237" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">硬件自驾 / 引导自驾保持姿态与速度</text>
+
+  <text x="396" y="264" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">两级权限门控 + 用户动作留痕</text>
+  <text x="396" y="283" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">SimulationUserAction 写入事件管道</text>
+
+  <text x="396" y="310" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1f2328">武器 / 传感器 / EW 走脚本约定</text>
+  <text x="396" y="329" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">座舱框架与机型逻辑解耦</text>
+
+  <!-- 中间演进箭头 -->
+  <line x1="304" y1="124" x2="372" y2="124" stroke="#1d5f8a" stroke-width="1.6"/>
+  <polygon points="376,124 368,120 368,128" fill="#1d5f8a"/>
+  <text x="340" y="116" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12" font-weight="600" fill="#1d5f8a">①</text>
+
+  <line x1="304" y1="191" x2="372" y2="191" stroke="#1d5f8a" stroke-width="1.6"/>
+  <polygon points="376,191 368,187 368,195" fill="#1d5f8a"/>
+  <text x="340" y="183" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12" font-weight="600" fill="#1d5f8a">②</text>
+
+  <line x1="304" y1="283" x2="372" y2="283" stroke="#1d5f8a" stroke-width="1.6"/>
+  <polygon points="376,283 368,279 368,287" fill="#1d5f8a"/>
+  <text x="340" y="275" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12" font-weight="600" fill="#1d5f8a">③</text>
+
+  <!-- 演进要点 -->
+  <text x="24" y="378" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" fill="#4a5158">三条演进方向(按性价比排序)</text>
+
+  <rect x="24" y="394" width="632" height="52" rx="10" fill="#fafbfc" stroke="#e0e3e7" stroke-width="1"/>
+  <text x="44" y="416" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1d5f8a">① 接管与注入改走飞行员对象</text>
+  <text x="44" y="434" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">激活 Manual pilot,注入 SetManualControlData;释放改 MakeSyntheticPilotActive,行为与 Warlock 一致</text>
+
+  <rect x="24" y="454" width="632" height="52" rx="10" fill="#fafbfc" stroke="#e0e3e7" stroke-width="1"/>
+  <text x="44" y="476" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1d5f8a">② 协议补齐 8 通道与增量语义</text>
+  <text x="44" y="494" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">新增减速板、起落架、配平字段,服务端按 Δt 积分;引入回退链,归零 failsafe 降为最后防线</text>
+
+  <rect x="24" y="514" width="632" height="52" rx="10" fill="#fafbfc" stroke="#e0e3e7" stroke-width="1"/>
+  <text x="44" y="536" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="600" fill="#1d5f8a">③ 新增 xio_execute_script 脚本命令</text>
+  <text x="44" y="554" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="11.5" fill="#4a5158">映射 WsfPlatform::ExecuteScript,复用 Warlock 整套武器传感器脚本约定,无需扩展 C++ 协议</text>
+</svg>
