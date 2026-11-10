@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1372" viewBox="0 0 750 1372" role="img" aria-labelledby="batch-title batch-desc">
+<title id="batch-title">批处理，怎样复用权重？</title>
+<desc id="batch-desc">在同一线性层，单请求只有一份输入 x1，批次中有四份输入 x1 到 x4。同一权重块 W 读入后，在理想的复用情况下可服务更多输入。动画先显示读取权重，再参与运算，最后得到该层输出 h1 或 h1 到 h4。这不表示权重在 HBM 中只读取一次，动画节奏也不是实测耗时。</desc>
+<rect x="0" y="0" width="750" height="1372" rx="0" fill="#FFF9EF" stroke="none" stroke-width="2" />
+<defs><marker id="batch-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 Z" fill="#647889"/></marker></defs>
+<rect x="40" y="40" width="9" height="55" rx="4" fill="#138A84" stroke="none" stroke-width="2" />
+<text x="70" y="82" font-size="42" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="start" >批处理，怎样复用权重？</text>
+<text x="40" y="143" font-size="34" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#647889" text-anchor="start" >同一线性层 · 理想权重复用示意</text>
+<rect x="40" y="181" width="212" height="62" rx="13" fill="#FFFFFF" stroke="#D2DBDE" stroke-width="2" />
+<g opacity="0.08" data-stage="0"><animate attributeName="opacity" values="0.08;0.95;0.95;0.08;0.08" keyTimes="0;0.04;0.27;0.31;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="40" y="181" width="212" height="62" rx="13" fill="#DDF2EB" stroke="#138A84" stroke-width="3" />
+</g>
+<text x="146" y="223" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >① 读取权重</text>
+<rect x="269" y="181" width="212" height="62" rx="13" fill="#FFFFFF" stroke="#D2DBDE" stroke-width="2" />
+<g opacity="0.08" data-stage="1"><animate attributeName="opacity" values="0.08;0.08;0.95;0.95;0.08;0.08" keyTimes="0;0.29;0.33;0.57;0.61;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="269" y="181" width="212" height="62" rx="13" fill="#DDF2EB" stroke="#138A84" stroke-width="3" />
+</g>
+<text x="375" y="223" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >② 参与运算</text>
+<rect x="498" y="181" width="212" height="62" rx="13" fill="#FFFFFF" stroke="#D2DBDE" stroke-width="2" />
+<g opacity="0.08" data-stage="2"><animate attributeName="opacity" values="0.08;0.08;0.95;0.95;0.08;0.08" keyTimes="0;0.60;0.64;0.93;0.98;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="498" y="181" width="212" height="62" rx="13" fill="#DDF2EB" stroke="#138A84" stroke-width="3" />
+</g>
+<text x="604" y="223" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >③ 得到输出</text>
+<g data-component="single">
+<rect x="40" y="276" width="670" height="395" rx="22" fill="#FFFFFF" stroke="#D2DBDE" stroke-width="2" />
+<text x="64" y="324" font-size="36" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="start" >单请求：1 份输入</text>
+<line x1="215" y1="472" x2="324" y2="472" stroke="#647889" stroke-width="3" stroke-linecap="round" marker-end="url(#batch-arrow)"/>
+<line x1="480" y1="472" x2="544" y2="472" stroke="#647889" stroke-width="3" stroke-linecap="round" marker-end="url(#batch-arrow)"/>
+<rect x="65" y="420" width="150" height="106" rx="17" fill="#FBE5D5" stroke="#F28C45" stroke-width="2" />
+<text x="140" y="489" font-size="48" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >W</text>
+<rect x="330" y="420" width="150" height="106" rx="17" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="405" y="485" font-size="38" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >运算</text>
+<rect x="550" y="420" width="130" height="106" rx="17" fill="#EDF1EE" stroke="#D2DBDE" stroke-width="2" />
+<text x="140" y="576" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >权重块</text>
+<text x="405" y="576" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >线性层</text>
+<text x="615" y="576" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >该层输出</text>
+<rect x="350" y="344" width="110" height="49" rx="11" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="405" y="380" font-size="34" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >x₁</text>
+<line x1="405" y1="393" x2="405" y2="414" stroke="#647889" stroke-width="3" stroke-linecap="round" marker-end="url(#batch-arrow)"/>
+<g opacity="0" data-effect="read-single"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.26;0.30;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="64" y="419" width="152" height="108" rx="18" fill="none" stroke="#F28C45" stroke-width="5" />
+</g>
+<g transform="translate(215 472)"><g opacity="0" data-effect="weight-transfer-single">
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;115 0;115 0;0 0" keyTimes="0;0.07;0.27;0.31;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.07;0.27;0.30;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="-15" y="-15" width="30" height="30" rx="6" fill="#F28C45" stroke="none" stroke-width="2" />
+</g></g>
+<g opacity="0" data-effect="compute-single"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.29;0.33;0.57;0.61;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="328" y="418" width="154" height="110" rx="18" fill="none" stroke="#138A84" stroke-width="5" />
+</g>
+<g transform="translate(480 472)"><g opacity="0" data-effect="output-transfer-single">
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;70 0;70 0;0 0" keyTimes="0;0.56;0.64;0.68;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.55;0.57;0.64;0.67;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<circle r="12" fill="#138A84"/>
+</g></g>
+<g opacity="1" data-result="single"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.63;0.67;0.93;0.98;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="550" y="420" width="130" height="106" rx="17" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="615" y="489" font-size="44" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >h₁</text>
+</g>
+<text x="375" y="633" font-size="34" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#138A84" text-anchor="middle" >读入的权重，服务 1 份输入</text>
+</g>
+<g data-component="batch">
+<rect x="40" y="707" width="670" height="395" rx="22" fill="#FFFFFF" stroke="#D2DBDE" stroke-width="2" />
+<text x="64" y="755" font-size="36" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="start" >批处理：4 份输入</text>
+<line x1="215" y1="903" x2="324" y2="903" stroke="#647889" stroke-width="3" stroke-linecap="round" marker-end="url(#batch-arrow)"/>
+<line x1="480" y1="903" x2="544" y2="903" stroke="#647889" stroke-width="3" stroke-linecap="round" marker-end="url(#batch-arrow)"/>
+<rect x="65" y="851" width="150" height="106" rx="17" fill="#FBE5D5" stroke="#F28C45" stroke-width="2" />
+<text x="140" y="920" font-size="48" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >W</text>
+<rect x="330" y="851" width="150" height="106" rx="17" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="405" y="916" font-size="38" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >运算</text>
+<rect x="550" y="851" width="130" height="106" rx="17" fill="#EDF1EE" stroke="#D2DBDE" stroke-width="2" />
+<text x="140" y="1007" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >权重块</text>
+<text x="405" y="1007" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >线性层</text>
+<text x="615" y="1007" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#17324D" text-anchor="middle" >该层输出</text>
+<rect x="267" y="775" width="66" height="49" rx="10" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="300" y="811" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >x₁</text>
+<line x1="300" y1="824" x2="300" y2="835" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<rect x="340" y="775" width="66" height="49" rx="10" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="373" y="811" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >x₂</text>
+<line x1="373" y1="824" x2="373" y2="835" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<rect x="413" y="775" width="66" height="49" rx="10" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="446" y="811" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >x₃</text>
+<line x1="446" y1="824" x2="446" y2="835" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<rect x="486" y="775" width="66" height="49" rx="10" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="519" y="811" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >x₄</text>
+<line x1="519" y1="824" x2="519" y2="835" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<line x1="300" y1="835" x2="519" y2="835" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<line x1="405" y1="835" x2="405" y2="844" stroke="#647889" stroke-width="2" stroke-linecap="round" />
+<path d="M399 842 L405 849 L411 842 Z" fill="#647889"/>
+<g opacity="0" data-effect="read-batch"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.26;0.30;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="64" y="850" width="152" height="108" rx="18" fill="none" stroke="#F28C45" stroke-width="5" />
+</g>
+<g transform="translate(215 903)"><g opacity="0" data-effect="weight-transfer-batch">
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;115 0;115 0;0 0" keyTimes="0;0.07;0.27;0.31;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.07;0.27;0.30;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="-15" y="-15" width="30" height="30" rx="6" fill="#F28C45" stroke="none" stroke-width="2" />
+</g></g>
+<g opacity="0" data-effect="compute-batch"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.29;0.33;0.57;0.61;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="328" y="849" width="154" height="110" rx="18" fill="none" stroke="#138A84" stroke-width="5" />
+</g>
+<g transform="translate(480 903)"><g opacity="0" data-effect="output-transfer-batch">
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;70 0;70 0;0 0" keyTimes="0;0.56;0.64;0.68;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.55;0.57;0.64;0.67;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<circle r="12" fill="#138A84"/>
+</g></g>
+<g opacity="1" data-result="batch"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.63;0.67;0.93;0.98;1" dur="10s" begin="0s" repeatCount="indefinite"/>
+<rect x="550" y="851" width="130" height="106" rx="17" fill="#DDF2EB" stroke="#138A84" stroke-width="2" />
+<text x="585" y="894" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >h₁</text>
+<text x="646" y="894" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >h₂</text>
+<text x="585" y="939" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >h₃</text>
+<text x="646" y="939" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#17324D" text-anchor="middle" >h₄</text>
+</g>
+<text x="375" y="1064" font-size="34" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#138A84" text-anchor="middle" >读入的权重，服务 4 份输入</text>
+</g>
+<rect x="40" y="1140" width="670" height="115" rx="20" fill="#17324D" stroke="none" stroke-width="2" />
+<text x="375" y="1188" font-size="38" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="700" fill="#FFFFFF" text-anchor="middle" >权重读取可摊销</text>
+<text x="375" y="1234" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="500" fill="#DDF2EB" text-anchor="middle" >KV 与计算仍要付出</text>
+<text x="40" y="1300" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#647889" text-anchor="start" >不代表权重在 HBM 中只读取一次。</text>
+<text x="40" y="1352" font-size="32" font-family="Alibaba PuHuiTi, Alibaba PuHuiTi 3.0, PingFang SC, sans-serif" font-weight="400" fill="#647889" text-anchor="start" >动画节奏不代表实测耗时或性能倍数。</text>
+</svg>
