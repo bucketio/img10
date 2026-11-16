@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1325" role="img" aria-labelledby="ngram_window_title ngram_window_desc" font-family="PingFang SC,Microsoft YaHei,sans-serif" fill="#17384A">
+<title id="ngram_window_title">每读到一个 token，以当前及前一个 token 的组合作为查表键</title>
+<desc id="ngram_window_desc">n=2 与 token 划分均为教学示意，并非 Qwen4-Max 的公开配置；组合独立查表，省略哈希等实现细节。</desc>
+<defs><marker id="ngram_window_arrow_teal" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M2 2 L12 7.5 L2 13" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="ngram_window_arrow_orange" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M2 2 L12 7.5 L2 13" fill="none" stroke="#B76520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="ngram_window_arrow_muted" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M2 2 L12 7.5 L2 13" fill="none" stroke="#607780" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<defs><marker id="ngram_window_arrow_blue" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M2 2 L12 7.5 L2 13" fill="none" stroke="#3366A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="750" height="1325" rx="0" fill="#F7F9F8"/>
+<text x="32" y="69" font-size="41" font-weight="750" text-anchor="start">窗口滑一步，换一个查表键</text>
+<text x="32" y="121" font-size="31" font-weight="400" text-anchor="start" fill="#607780">n = 2：取当前 token 和前一个 token</text>
+<line x1="127" y1="187" x2="259" y2="187" stroke="#D9E3E4" stroke-width="3" stroke-linecap="round"/>
+<circle cx="102" cy="187" r="25" fill="#EEF1F2"/>
+<line x1="309" y1="187" x2="441" y2="187" stroke="#D9E3E4" stroke-width="3" stroke-linecap="round"/>
+<circle cx="284" cy="187" r="25" fill="#EEF1F2"/>
+<line x1="491" y1="187" x2="623" y2="187" stroke="#D9E3E4" stroke-width="3" stroke-linecap="round"/>
+<circle cx="466" cy="187" r="25" fill="#EEF1F2"/>
+<circle cx="648" cy="187" r="25" fill="#EEF1F2"/>
+<rect x="24" y="235" width="702" height="342" rx="23" fill="#FFFFFF" stroke="#D9E3E4" stroke-width="2"/>
+<text x="47" y="330" font-size="31" font-weight="650" text-anchor="start" fill="#087F77">绿色框：两个相邻 token 组成一个 key</text>
+<rect x="24" y="606" width="702" height="440" rx="23" fill="#FFFFFF" stroke="#D9E3E4" stroke-width="2"/>
+<text x="47" y="654" font-size="36" font-weight="750" text-anchor="start" fill="#087F77">用整个组合查表</text>
+<rect x="47" y="681" width="656" height="86" rx="17" fill="#FFF0DC" stroke="#B76520" stroke-width="2"/>
+<line x1="375" y1="779" x2="375" y2="831" stroke="#B76520" stroke-width="3" stroke-linecap="round" marker-end="url(#ngram_window_arrow_orange)"/>
+<rect x="47" y="846" width="656" height="165" rx="18" fill="#E2F3EF" stroke="#087F77" stroke-width="2"/>
+<text x="375" y="894" font-size="32" font-weight="650" text-anchor="middle" fill="#087F77">2-gram 参数表 · 读取对应条目</text>
+<rect x="24" y="1074" width="702" height="110" rx="21" fill="#EAF0FA"/>
+<text x="47" y="1117" font-size="31" font-weight="600" text-anchor="start" fill="#3366A6">当前位置只使用已经读到的 token，</text>
+<text x="47" y="1162" font-size="31" font-weight="600" text-anchor="start" fill="#3366A6">不把右侧尚未读到的内容放进 key。</text>
+<g id="ngram_window_state_0" opacity="0">
+<animate attributeName="opacity" values="1;0;0;0;1" keyTimes="0;0.25;0.5;0.75;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="102" cy="187" r="25" fill="#087F77"/>
+<text x="102" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+<text x="284" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">2</text>
+<text x="466" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">3</text>
+<text x="648" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">4</text>
+<text x="47" y="282" font-size="36" font-weight="750" text-anchor="start">第 1 步：读到“在”</text>
+<rect x="42" y="382" width="106" height="79" rx="14" fill="#E2F3EF" stroke="#087F77" stroke-width="2"/>
+<text x="95" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#087F77">我</text>
+<rect x="182" y="382" width="106" height="79" rx="14" fill="#FFF0DC" stroke="#B76520" stroke-width="2"/>
+<text x="235" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#B76520">在</text>
+<text x="235" y="371" font-size="28" font-weight="650" text-anchor="middle" fill="#B76520">当前</text>
+<rect x="322" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="375" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">北京</text>
+<rect x="462" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="515" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">大学</text>
+<rect x="602" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="655" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">读书</text>
+<rect x="34" y="376" width="262" height="92" rx="18" fill="none" stroke="#087F77" stroke-width="4"/>
+<path d="M54 475 V491 H276 V475" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M165 491 V525 H375 V560" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ngram_window_arrow_teal)"/>
+<text x="375" y="737" font-size="39" font-weight="750" text-anchor="middle" fill="#B76520">key =（我，在）</text>
+<g id="ngram_window_result_0" opacity="1">
+<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.074999;0.075000;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<text x="375" y="968" font-size="40" font-weight="750" text-anchor="middle" fill="#087F77">读出补充向量 v1</text>
+</g>
+</g>
+<g id="ngram_window_state_1" opacity="0">
+<animate attributeName="opacity" values="0;1;0;0;0" keyTimes="0;0.25;0.5;0.75;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="284" cy="187" r="25" fill="#087F77"/>
+<text x="102" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">1</text>
+<text x="284" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+<text x="466" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">3</text>
+<text x="648" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">4</text>
+<text x="47" y="282" font-size="36" font-weight="750" text-anchor="start">第 2 步：读到“北京”</text>
+<rect x="42" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="95" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">我</text>
+<rect x="182" y="382" width="106" height="79" rx="14" fill="#E2F3EF" stroke="#087F77" stroke-width="2"/>
+<text x="235" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#087F77">在</text>
+<rect x="322" y="382" width="106" height="79" rx="14" fill="#FFF0DC" stroke="#B76520" stroke-width="2"/>
+<text x="375" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#B76520">北京</text>
+<text x="375" y="371" font-size="28" font-weight="650" text-anchor="middle" fill="#B76520">当前</text>
+<rect x="462" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="515" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">大学</text>
+<rect x="602" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="655" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">读书</text>
+<rect x="174" y="376" width="262" height="92" rx="18" fill="none" stroke="#087F77" stroke-width="4"/>
+<path d="M194 475 V491 H416 V475" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M305 491 V525 H375 V560" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ngram_window_arrow_teal)"/>
+<text x="375" y="737" font-size="39" font-weight="750" text-anchor="middle" fill="#B76520">key =（在，北京）</text>
+<g id="ngram_window_result_1" opacity="1">
+<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.324999;0.325000;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<text x="375" y="968" font-size="40" font-weight="750" text-anchor="middle" fill="#087F77">读出补充向量 v2</text>
+</g>
+</g>
+<g id="ngram_window_state_2" opacity="0">
+<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.25;0.5;0.75;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="466" cy="187" r="25" fill="#087F77"/>
+<text x="102" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">1</text>
+<text x="284" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">2</text>
+<text x="466" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+<text x="648" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">4</text>
+<text x="47" y="282" font-size="36" font-weight="750" text-anchor="start">第 3 步：读到“大学”</text>
+<rect x="42" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="95" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">我</text>
+<rect x="182" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="235" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">在</text>
+<rect x="322" y="382" width="106" height="79" rx="14" fill="#E2F3EF" stroke="#087F77" stroke-width="2"/>
+<text x="375" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#087F77">北京</text>
+<rect x="462" y="382" width="106" height="79" rx="14" fill="#FFF0DC" stroke="#B76520" stroke-width="2"/>
+<text x="515" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#B76520">大学</text>
+<text x="515" y="371" font-size="28" font-weight="650" text-anchor="middle" fill="#B76520">当前</text>
+<rect x="602" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="655" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#AAB6BC">读书</text>
+<rect x="314" y="376" width="262" height="92" rx="18" fill="none" stroke="#087F77" stroke-width="4"/>
+<path d="M334 475 V491 H556 V475" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M445 491 V525 H375 V560" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ngram_window_arrow_teal)"/>
+<text x="375" y="737" font-size="39" font-weight="750" text-anchor="middle" fill="#B76520">key =（北京，大学）</text>
+<g id="ngram_window_result_2" opacity="1">
+<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.574999;0.575000;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<text x="375" y="968" font-size="40" font-weight="750" text-anchor="middle" fill="#087F77">读出补充向量 v3</text>
+</g>
+</g>
+<g id="ngram_window_state_3" opacity="1">
+<animate attributeName="opacity" values="0;0;0;1;0" keyTimes="0;0.25;0.5;0.75;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="648" cy="187" r="25" fill="#087F77"/>
+<text x="102" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">1</text>
+<text x="284" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">2</text>
+<text x="466" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#607780">3</text>
+<text x="648" y="197" font-size="29" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+<text x="47" y="282" font-size="36" font-weight="750" text-anchor="start">第 4 步：读到“读书”</text>
+<rect x="42" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="95" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">我</text>
+<rect x="182" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="235" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">在</text>
+<rect x="322" y="382" width="106" height="79" rx="14" fill="#EEF1F2"/>
+<text x="375" y="435" font-size="36" font-weight="500" text-anchor="middle" fill="#607780">北京</text>
+<rect x="462" y="382" width="106" height="79" rx="14" fill="#E2F3EF" stroke="#087F77" stroke-width="2"/>
+<text x="515" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#087F77">大学</text>
+<rect x="602" y="382" width="106" height="79" rx="14" fill="#FFF0DC" stroke="#B76520" stroke-width="2"/>
+<text x="655" y="435" font-size="36" font-weight="700" text-anchor="middle" fill="#B76520">读书</text>
+<text x="655" y="371" font-size="28" font-weight="650" text-anchor="middle" fill="#B76520">当前</text>
+<rect x="454" y="376" width="262" height="92" rx="18" fill="none" stroke="#087F77" stroke-width="4"/>
+<path d="M474 475 V491 H696 V475" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M585 491 V525 H375 V560" fill="none" stroke="#087F77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ngram_window_arrow_teal)"/>
+<text x="375" y="737" font-size="39" font-weight="750" text-anchor="middle" fill="#B76520">key =（大学，读书）</text>
+<g id="ngram_window_result_3" opacity="1">
+<animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.824999;0.825000;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<text x="375" y="968" font-size="40" font-weight="750" text-anchor="middle" fill="#087F77">读出补充向量 v4</text>
+</g>
+</g>
+<g opacity="0" transform="translate(375 779)">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.014999;0.015000;0.070000;0.070001;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 51;0 51" keyTimes="0;0.015000;0.070000;1" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="0" cy="0" r="7" fill="#B76520"/>
+</g></g>
+<g opacity="0" transform="translate(375 779)">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.264999;0.265000;0.320000;0.320001;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 51;0 51" keyTimes="0;0.265000;0.320000;1" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="0" cy="0" r="7" fill="#B76520"/>
+</g></g>
+<g opacity="0" transform="translate(375 779)">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.514999;0.515000;0.570000;0.570001;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 51;0 51" keyTimes="0;0.515000;0.570000;1" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="0" cy="0" r="7" fill="#B76520"/>
+</g></g>
+<g opacity="0" transform="translate(375 779)">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.764999;0.765000;0.820000;0.820001;1" calcMode="discrete" dur="18s" begin="0s" repeatCount="indefinite"/>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 51;0 51" keyTimes="0;0.765000;0.820000;1" dur="18s" begin="0s" repeatCount="indefinite"/>
+<circle cx="0" cy="0" r="7" fill="#B76520"/>
+</g></g>
+<line x1="32" y1="1205" x2="718" y2="1205" stroke="#D9E3E4" stroke-width="2" stroke-linecap="round"/>
+<text x="32" y="1243" font-size="30" font-weight="400" text-anchor="start" fill="#607780">分词、n=2、v1–v4 均为教学示意。</text>
+<text x="32" y="1286" font-size="30" font-weight="400" text-anchor="start" fill="#607780">18 秒表示演示节奏，不代表真实运行耗时。</text>
+</svg>
